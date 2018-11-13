@@ -5,11 +5,11 @@ function do_resize(textbox) {
      var cols=textbox.cols;
    
     var arraytxt=txt.split('\n');
-     var rows=arraytxt.length; 
+     var minrows=arraytxt.length; 
    
     for (i=0;i<arraytxt.length;i++) 
-     rows+=parseInt(arraytxt[i].length/cols);
+     minrows+=parseInt(arraytxt[i].length/cols);
    
-    if (rows>maxrows) textbox.rows=maxrows;
-     else textbox.rows=rows;
+    if (minrows>maxrows) textbox.rows=maxrows;
+     else textbox.rows=minrows;
     }
