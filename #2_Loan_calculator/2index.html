@@ -1,0 +1,61 @@
+<form name="myform" method="post">
+    02
+    <p>Enter Loan Information: Annual Percentage Rate of interest (APR), Length of Payment in months and Total Loan amount</p>
+    03
+    <table>
+    04
+    <tr>
+    05
+    <td>Annual Percentage Rate</td><td><input type="text" name="apr" size="3" onchange="calculate()"/></td>
+    06
+    <td>Months</td><td><input type="text" name="mths" size="3" onchange="calculate()"/></td>
+    07
+    <td>Amount</td><td><input type="text" name="amt" size="8" onchange="calculate()"/></td>
+    08
+    </tr>
+    09
+    </table><table>
+    10
+    <tr>
+    11
+    <td><input type="button" value="Calc Payment" onclick="calculate()"/></td>
+    12
+    <td><input type="reset" value="Reset"/></td>
+    13
+    </tr>
+    14
+    </table>
+    15
+    <table>
+    16
+    <tr>
+    17
+    <td>Your monthly payment will be:</td>
+    18
+    <td><input type="text" name="pymt" size="6"></td>
+    19
+    </tr>
+    20
+    </table>
+    21
+    </form>
+    22
+    <script language= "javascript">
+    23
+    function calculate(){
+    24
+    if(apr<0.1 || apr>100) {return (invalid entry);}
+    25
+    else if(mths<1 || mths>600) {return (invalid entry);}
+    26
+    else if(amt<1 || amt>10000000) {return (invalid entry);}
+    27
+    else{
+    28
+    var monthly_int = apr/1200.0; /* interest divided by 12 mths multiplied by 100% */
+    29
+    var pvifa= (1.0/ apr)-(1.0/(apr *Math.pow(1.0+ apr, mths)));
+    30
+    pymt= amt/pvifa;}
+    31
+    }
